@@ -67,7 +67,7 @@ body, html {
   transform: translateX(-50%);
   width: 200px;
   height: 200px;
-  background-image: url('logo.PNG');
+  background-image: url('logo.png');
   background-size: contain;  
   background-repeat: no-repeat;  
   z-index: 9999;
@@ -204,12 +204,12 @@ document.onkeydown = function(e) {
 
   switch (e.key) {
     case 'ArrowUp':
-      if (y - speed > 0) {
-        img.style.top = (y - speed) + 'px';
-        barraVida.style.top = (y - speed - 10) + 'px';
-        barraVida.style.left = (x + img.width / 2 - 100) + 'px';
-      }
-      break;
+  if (y - speed > 50) {
+    img.style.top = (y - speed) + 'px';
+    barraVida.style.top = (y - speed - 10) + 'px';
+    barraVida.style.left = (x + img.width / 2 - 100) + 'px';
+  }
+  break;
     case 'ArrowDown':
       if (y + speed < windowHeight - img.height - 20) {
         img.style.top = (y + speed) + 'px';
