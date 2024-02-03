@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Margolin Games</title>
+    <link rel="icon" href="juego1/logop.PNG">
+    <style>
+        body, html {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(18, 18, 18);
+        }
+        #barraOpciones {
+            background-color: #18181c;
+            overflow: hidden;
+            position: relative;
+        }
+        #barraOpciones a {
+            float: right;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        #barraOpciones a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        #logo {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background-image: url('juego1/logo.PNG');
+            background-size: contain;  
+            background-repeat: no-repeat;  
+            z-index: 9999;
+        }
+        .cuadroImagen {
+            width: 150px;
+            height: 150px;
+            margin: 20px;
+            transition: transform .2s;
+            background-size: contain;
+            background-position: center;
+        }
+        .cuadroImagen:hover {
+            transform: scale(1.2);
+        }
+        .nombreImagen {
+            text-align: center;
+            color: #f2f2f2;
+            opacity: 0;
+            transition: opacity .2s, transform .2s;
+            transform: translateY(-50px);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+        .imagenNombre:hover .nombreImagen {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contenedor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 30vh;  /* Ajusta la altura del contenedor aquí */
+        }
+        .imagenNombre {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Estilos para el carrusel de imágenes */
+        .carrusel {
+            position: relative;
+            width: 50%;  /* Ajusta el ancho del carrusel aquí */
+            height: 400px;  /* Ajusta la altura del carrusel aquí */
+            margin: 50px auto;  /* Ajusta el margen superior e inferior del carrusel aquí */
+            overflow: hidden;
+        }
+        .carrusel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;  /* Las imágenes son transparentes inicialmente */
+        }
+        .carrusel img.loaded {
+            animation: carrusel 40s linear infinite;  /* La animación se aplica solo después de que la imagen se haya cargado */
+            opacity: 1;  /* Las imágenes se vuelven visibles después de cargarse */
+        }
+        @keyframes carrusel {
+            0% { transform: translateX(100%); }
+            10% { transform: translateX(0); }
+            20% { transform: translateX(0); }
+            30% { transform: translateX(-100%); }
+            40%, 100% { transform: translateX(-100%); }
+        }
+        .carrusel img:nth-child(1) { animation-delay: 0s; }
+        .carrusel img:nth-child(2) { animation-delay: 8s; }
+        .carrusel img:nth-child(3) { animation-delay: 16s; }
+        .carrusel img:nth-child(4) { animation-delay: 24s; }
+        .carrusel img:nth-child(5) { animation-delay: 32s; }
+        .tituloJuegos {
+            text-align: right;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700px;
+            margin-right: 1200px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var images = document.querySelectorAll('.carrusel img');
+            var loadedImagesCount = 0;
+            for (var i = 0; i < images.length; i++) {
+                images[i].onload = function() {
+                    loadedImagesCount++;
+                    if (loadedImagesCount === images.length) {
+                        for (var j = 0; j < images.length; j++) {
+                            images[j].classList.add('loaded');
+                        }
+                    }
+                };
+                images[i].src = images[i].getAttribute('data-src');
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="barraOpciones">
+        <a href="juego1/endesarrollo.html"><img src="https://icones.pro/wp-content/uploads/2021/06/icone-loupe-gris.png" alt="Buscar" style="width: 20px; height: 20px;"></a>
+        <a href="juego1/endesarrollo.html">Acerca de</a>
+        <a href="juego1/endesarrollo.html">Contacto</a>
+        <a href="#" onclick="location.reload();">Inicio</a>
+    </div>
+
+    <div id="logo"></div>
+
+
+    <!-- Carrusel de imágenes -->
+    <div class="carrusel">
+        <img data-src="juego1/m.jpeg" alt="Imagen 1">
+        <img data-src="juego1/proximo.jpeg" alt="Imagen 2">
+        <img data-src="juego1/proximo.jpeg" alt="Imagen 3">
+        <img data-src="juego1/proximo.jpeg" alt="Imagen 4">
+        <img data-src="juego1/proximo.jpeg" alt="Imagen 5">
+    </div>
+
+    <h1 class="tituloJuegos">Juegos</h1>
+
+    <div class="contenedor">
+        <div class="imagenNombre">
+            <a href="juego1/juego1.html">
+                <div class="cuadroImagen" style="background-image: url('juego1/m.jpeg');"></div>
+            </a>
+            <p class="nombreImagen">MargoFuego</p>
+        </div>
+        <div class="imagenNombre">
+            <a href="#">
+                <div class="cuadroImagen" style="background-image: url('juego1/proximo.jpeg');"></div>
+            </a>
+            <p class="nombreImagen">??</p>
+        </div>
+        <div class="imagenNombre">
+            <a href="#">
+                <div class="cuadroImagen" style="background-image: url('juego1/proximo.jpeg');"></div>
+            </a>
+            <p class="nombreImagen">??</p>
+        </div>
+        <div class="imagenNombre">
+            <a href="#">
+                <div class="cuadroImagen" style="background-image: url('juego1/proximo.jpeg');"></div>
+            </a>
+            <p class="nombreImagen">??</p>
+        </div>
+    </div>
+
+</body>
+</html>
