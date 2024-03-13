@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        #ventanaFlotante {
+            width: 300px;
+            height: 200px;
+            background-color: #141414;
+            border: 2px solid #E50914;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #ventanaFlotante h2 {
+            margin: 0;
+            color: #E50914;
+            font-size: 24px;
+        }
+
+        #ventanaFlotante p {
+            margin: 10px 0 0 0;
+            color: white;
+            font-size: 16px;
+        }
+
+        #ventanaFlotante button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #E50914;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.5s, transform 0.3s;
+        }
+
+        #ventanaFlotante button:hover {
+            background-color: #B20710;
+            transform: scale(1.1);
+        }
+
+        #ventanaFlotante button:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+    <div id="ventanaFlotante">
+        <h2>En Desarrollo</h2>
+        <p>Esta página está actualmente en desarrollo. ¡Vuelve pronto para ver las actualizaciones!</p>
+        <button onclick="history.back()">Regresar</button>
+    </div>
+</body>
+</html>
